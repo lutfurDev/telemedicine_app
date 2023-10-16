@@ -1,4 +1,5 @@
 import 'package:telemedicine_app/screens/cart_screen.dart';
+import 'package:telemedicine_app/screens/doctor_list.dart';
 import 'package:telemedicine_app/screens/favorite.dart';
 import 'package:telemedicine_app/screens/forget_password.dart';
 import 'package:telemedicine_app/screens/my%20reviews.dart';
@@ -169,6 +170,10 @@ class AppPages {
     GetPage(
       name: _Paths.FLIGHT,
       page: () => const FlightScreen(),
+    ),
+    GetPage(
+      name: _Paths.DOCTOR_LIST,
+      page: () => const DoctorListScreen(),
     ),
 
   ];

@@ -54,7 +54,7 @@ class TopCategoryLayout extends StatelessWidget {
           ),
           customSpacerWidth(width: 12),
           Text(
-            "Hello, Traveler",
+            "Hello, Steven",
             style: AppStyle.title_text
                 .copyWith(fontSize: Dimensions.fontSizeMid + 1),
           )
@@ -105,8 +105,8 @@ class TopCategoryLayout extends StatelessWidget {
                 const Spacer(),
                 _dashboardLayout(
                     context: context,
-                    icon: Icons.medical_services_outlined,
-                    onAction: ()=>Get.toNamed(Routes.FLIGHT),
+                    icon: CupertinoIcons.person,
+                    onAction: ()=>Get.toNamed(Routes.DOCTOR_LIST),
                     text: AppString.text_doctors.tr,
 
                 subtext: "Search doctors"
@@ -116,14 +116,14 @@ class TopCategoryLayout extends StatelessWidget {
                     onAction: ()=>Get.toNamed(Routes.FLIGHT),
                     subtext: "Order medicine",
 
-                    context: context, icon: CupertinoIcons.house, text: AppString.text_medicin.tr),
+                    context: context, icon: Icons.medical_services_outlined, text: AppString.text_medicin.tr),
                 const Spacer(),
                 _dashboardLayout(
                     onAction: ()=>Get.toNamed(Routes.FLIGHT),
                     subtext: "Book test"
 ,
                     context: context,
-                    icon: CupertinoIcons.train_style_two,
+                    icon: CupertinoIcons.lab_flask,
                     text: AppString.text_diagnostic.tr),
                 const Spacer(),
               ],

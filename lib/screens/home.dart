@@ -54,24 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
             _doctorsLayout(context),
             customSpacerHeight(height: 8),
 
-            tileTextLayout(context: context, text: AppString.text_special.tr, onAction: (){},isHideText: true),
-            customSpacerHeight(height: 8),
-
-            _specialOfferLayout(context),
-            customSpacerHeight(height: 12),
-
             tileTextLayout(context: context, text: AppString.text_fratured.tr, onAction: (){},isHideText: true),
             customSpacerHeight(height: 8),
             _featuredLayout(context),
             customSpacerHeight(height: 12),
-
-
-
-
-
-
-
-
           ],
         ),
       ),
@@ -162,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Icon(Icons.star,size: Dimensions.fontSizeDefault+3,color: AppColor.primaryColor,),
                                 customSpacerWidth(width: 2),
-                                Text(AppString.text_view_details.tr,style:AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.6),fontSize: Dimensions.fontSizeDefault-2),)
+                                Text("5.6".tr,style:AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.6),fontSize: Dimensions.fontSizeDefault-2),)
                               ],
                             ),
                           ],
@@ -196,49 +182,15 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  _specialCategoryOfferLayout(BuildContext context) {
-       return SizedBox(
-      height: AppLayout.getHeight(50),
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
 
-        itemCount: specialListIndex.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: (){
-              setState(() {
-                specialIndex=index;
-              });
-            },
-            child: categoryLayoutView(
-                context: context,index: index,currentIndex: specialIndex,
-              text: specialListIndex[index]
-            ),
-          );
-        },),
-    );
-  }
 
-  _specialOfferLayout(BuildContext context) {
-       return SizedBox(
-      height: AppLayout.getHeight(183),
 
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-
-        itemBuilder: (context, index) {
-         return _specialOfferView(context);
-        },),
-    );
-  }
 
   _specialOfferView(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: SizedBox(
-        width: AppLayout.getWidth(170),
+        width: AppLayout.getWidth(230),
         child: Card(
           elevation: 0,
           shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(Dimensions.radiusDefault)),
@@ -247,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: AppLayout.getHeight(100),
+                height: AppLayout.getHeight(115),
                 width: MediaQuery.of(context).size.width,
                 child:Container(
                   decoration: BoxDecoration(
@@ -275,41 +227,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _featuredLayout(BuildContext context) {
     return SizedBox(
-      height: AppLayout.getHeight(178),
+      height: AppLayout.getHeight(200),
+
       child: ListView.builder(
+        scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
 
-        scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-         return _featuredView(context);
+          return _specialOfferView(context);
         },),
     );
 
   }
 
-  _featuredView(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 12.0),
-      child: SizedBox(
-        width: AppLayout.getWidth(300),
-        child: Card(
-          elevation: 0,
-          shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(Dimensions.radiusDefault)),
-          shadowColor: Colors.grey.withOpacity(0.2),
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child:Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radiusDefault-1),
-                  image: DecorationImage(image: AssetImage(Images.group_doctor),fit: BoxFit.fill)
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
   
 }
 
