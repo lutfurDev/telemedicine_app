@@ -16,6 +16,7 @@ import 'package:get/get.dart';
 import '../screens/add_payment_method.dart';
 import '../screens/add_shipping_address.dart';
 import '../screens/change_password.dart';
+import '../screens/doctor_view_details.dart';
 import '../screens/edit_shipping_address.dart';
 import '../screens/filter_screen.dart';
 import '../screens/flight.dart';
@@ -171,9 +172,15 @@ class AppPages {
       name: _Paths.FLIGHT,
       page: () => const FlightScreen(),
     ),
+
     GetPage(
       name: _Paths.DOCTOR_LIST,
+      transition: Transition.size,
       page: () => const DoctorListScreen(),
+    ),  GetPage(
+      name: _Paths.DOCTOR_PROFILE_VIEW,
+      transition: Transition.size,
+      page: () => const DoctorViewDetails(),
     ),
 
   ];

@@ -58,7 +58,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
   _paymentMethodAppbar(context) {
     return appBar(
       context: context,
-      text: AppString.text_payment_method.tr,
+      text: AppString.text_feedback.tr,
       argumentVal: true,
       isNotificationHide: true,
     );

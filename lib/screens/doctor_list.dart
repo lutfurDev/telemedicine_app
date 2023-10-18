@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:telemedicine_app/routes/app_pages.dart';
+import 'package:telemedicine_app/screens/doctor_view_details.dart';
 import 'package:telemedicine_app/utils/app_color.dart';
 import 'package:telemedicine_app/utils/app_layout.dart';
 import 'package:telemedicine_app/utils/app_string.dart';
@@ -8,10 +10,10 @@ import 'package:telemedicine_app/utils/app_style.dart';
 import 'package:telemedicine_app/utils/dimensions.dart';
 import 'package:telemedicine_app/utils/images.dart';
 import 'package:telemedicine_app/widgets/custom_text_field.dart';
-
-import '../routes/app_pages.dart';
+import '../widgets/auth_view_widget.dart';
 import '../widgets/custom_spacer.dart';
-import '../widgets/selected_county_widget.dart';
+import '../widgets/home_view_widgets.dart';
+
 class DoctorListScreen extends StatelessWidget {
   const DoctorListScreen({super.key});
 
@@ -19,24 +21,29 @@ class DoctorListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        slivers: [SearchDoctorLayout(), sliverToBoxAdapter],
+        slivers: [const SearchDoctorLayout(), sliverToBoxAdapter(context)],
       ),
     );
   }
 }
 
-
-SliverAppBar  sliverAppBar(context) {
+SliverAppBar sliverAppBar(context) {
   return SliverAppBar(
     expandedHeight: AppLayout.getHeight(50),
     elevation: 0,
-    leading: IconButton(onPressed: ()=>Get.back(),icon: const Icon(Icons.arrow_back_ios),),
-    bottom: _subAppbar(context),
-    title: Text(AppString.text_doctors,style: AppStyle.title_text.copyWith(color: AppColor.normalTextColor,fontSize: Dimensions.fontSizeMid+2),),
+    leading: IconButton(
+      onPressed: () => Get.back(),
+      icon: const Icon(Icons.arrow_back_ios),
+    ),
+    title: Text(
+      AppString.text_doctors,
+      style: AppStyle.title_text.copyWith(
+          color: AppColor.normalTextColor,
+          fontSize: Dimensions.fontSizeMid + 2),
+    ),
     pinned: true,
     backgroundColor: AppColor.primaryColor,
     flexibleSpace: FlexibleSpaceBar(
-
       background: Image.asset(
         Images.bg_2,
         fit: BoxFit.cover,
@@ -45,51 +52,8 @@ SliverAppBar  sliverAppBar(context) {
   );
 }
 
-_subAppbar(context) {
-  return PreferredSize(
-    preferredSize: const Size.fromHeight(120),
-    child: Container(
-      height: AppLayout.getHeight(22),
-        decoration:  BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(Dimensions.radiusMid+5),
-                topLeft: Radius.circular(Dimensions.radiusMid+5),)),
-        width: double.maxFinite,
-        padding: const EdgeInsets.only(top: 5, bottom: 5),
-      child: Stack(
-        children: [
-          Positioned(
-            bottom: 0,
-            child: Container(
-              height: 78,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor,
-                  borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      topLeft: Radius.circular(20))),
-              padding: const EdgeInsets.only(top: 9, bottom: 5),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 14.0),
-            child: AppInputField(title: "",hint: ""),
-          ),
-        ],
-      ),
-
-    ),
-  );
-}
-
-
-
-
-
 class SearchDoctorLayout extends StatelessWidget {
   const SearchDoctorLayout({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -99,7 +63,7 @@ class SearchDoctorLayout extends StatelessWidget {
         children: [
           customSpacerWidth(width: 20),
           GestureDetector(
-            onTap: ()=>Get.back(),
+            onTap: () => Get.back(),
             child: const Icon(
               Icons.arrow_back_ios,
             ),
@@ -107,8 +71,9 @@ class SearchDoctorLayout extends StatelessWidget {
           customSpacerWidth(width: 12),
           Text(
             AppString.text_doctors,
-            style: AppStyle.title_text
-                .copyWith(fontSize: Dimensions.fontSizeMid + 1,color: Theme.of(context).colorScheme.onPrimary),
+            style: AppStyle.title_text.copyWith(
+                fontSize: Dimensions.fontSizeMid + 1,
+                color: Theme.of(context).colorScheme.onPrimary),
           )
         ],
       ),
@@ -133,33 +98,30 @@ class SearchDoctorLayout extends StatelessWidget {
   _subAppbar(context) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(86),
-
       child: Stack(
         children: [
           Positioned(
             bottom: 0,
             child: Container(
-              height: 50,
+              height: 40,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   color: Theme.of(context).backgroundColor,
                   borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(20),
                       topLeft: Radius.circular(20))),
-              padding: const EdgeInsets.only(top: 9, bottom: 5),
+              padding: const EdgeInsets.only(top: 9, bottom: 0),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 14.0),
+            padding: const EdgeInsets.only(bottom: 0.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _searchInputFieldLayout(
-                    context: context,
-                    onAction: (){},
-
+                  context: context,
+                  onAction: () {},
                 ),
-
               ],
             ),
           ),
@@ -167,39 +129,153 @@ class SearchDoctorLayout extends StatelessWidget {
       ),
     );
   }
-  _searchInputFieldLayout({required BuildContext context,onAction}) {
+
+  _searchInputFieldLayout({required BuildContext context, onAction}) {
     return Stack(
       children: [
         Positioned(
             child: GestureDetector(
-              onTap: onAction,
-              child: Padding(
-                padding:  EdgeInsets.only(bottom: AppLayout.getHeight(6)),
-                child: SizedBox(
-                  width: AppLayout.getWidth(350),
-                  child:   AppInputField(hint:AppString.text_enter_search.tr,isButtonExpanded: false,title: "",
-                  isFieldTitleHide: true,
-                    onAction: onAction,
-                  ),
-                ),
+          onTap: onAction,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: AppLayout.getHeight(6)),
+            child: SizedBox(
+              width: AppLayout.getWidth(350),
+              child: AppInputField(
+                hint: AppString.text_enter_search.tr,
+                isButtonExpanded: false,
+                title: "",
+                isFieldTitleHide: true,
+                onAction: onAction,
               ),
-            )
-
-        ),
-
+            ),
+          ),
+        )),
       ],
     );
   }
 }
 
+SliverToBoxAdapter sliverToBoxAdapter(context) {
+  return SliverToBoxAdapter(
+    child: SizedBox(
+      height: MediaQuery.of(context).size.height,
+      child: Padding(
+        padding: marginLayout.copyWith(top: 0),
+        child: _doctorsLayout(context),
+      ),
+    ),
+  );
+}
 
+_doctorsLayout(BuildContext context) {
+  return ListView.builder(
+   physics: const BouncingScrollPhysics(),
+    padding: const EdgeInsets.all(8),
+    itemBuilder: (context, index) {
+       return _offerViewLayout(context);
+    },
+  );
+}
 
-
-
-
-SliverToBoxAdapter get sliverToBoxAdapter {
-  return const SliverToBoxAdapter(
-    child: Text(
-        "Lorem Ipsum is simplyLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
+_offerViewLayout(BuildContext context) {
+  return GestureDetector(
+    onTap: ()=>Get.toNamed(Routes.DOCTOR_PROFILE_VIEW),
+    child: Stack(
+      children: [
+        SizedBox(
+          height: AppLayout.getHeight(138),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(left: AppLayout.getWidth(24)),
+              child: Card(
+                elevation: 0,
+                shape: roundedRectangleBorder.copyWith(
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.radiusDefault)),
+                shadowColor: Colors.grey.withOpacity(0.2),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    customSpacerWidth(width: 80),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Dr.Steve Robert",
+                            style: AppStyle.normal_text_black.copyWith(
+                                color: Theme.of(context).colorScheme.onPrimary),
+                          ),
+                          Text(
+                            "B.sc DDDD",
+                            style: AppStyle.normal_text_black.copyWith(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onPrimary
+                                    .withOpacity(0.6),
+                                fontSize: Dimensions.fontSizeDefault - 2),
+                          ),
+                          Text(
+                            "Epidemiologist",
+                            style: AppStyle.normal_text_black.copyWith(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onPrimary
+                                    .withOpacity(0.6),
+                                fontSize: Dimensions.fontSizeDefault - 2),
+                          ),
+                          const Spacer(),
+                          Row(
+                            children: [
+                              Icon(
+                                CupertinoIcons.clock,
+                                size: Dimensions.fontSizeDefault + 1,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onPrimary
+                                    .withOpacity(0.6),                              ),
+                              customSpacerWidth(width: 4),
+                              Text(
+                                "9.30AM - 8.30PM".tr,
+                                style: AppStyle.normal_text_black.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary
+                                        .withOpacity(0.6),
+                                    fontSize: Dimensions.fontSizeDefault - 2),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 15,
+          child: SizedBox(
+            width: AppLayout.getHeight(100),
+            height: AppLayout.getHeight(76),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
+                  image: DecorationImage(
+                      image: AssetImage(Images.banner_1), fit: BoxFit.fill)),
+            ),
+          ),
+        ),
+         Positioned(
+          bottom: 10,
+          left: 40,
+          child: Text("Open",style: AppStyle.title_text.copyWith(color: AppColor.successColor,fontSize: Dimensions.radiusMid-3),),
+        )
+      ],
+    ),
   );
 }

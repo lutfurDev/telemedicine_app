@@ -98,7 +98,7 @@ class ProfileScreen extends StatelessWidget {
                   onAction: () => Get.toNamed(Routes.SHIPPING_ADDRESS)),
               dividedSectionLayout(
                   cardIcon: CupertinoIcons.money_dollar_circle,
-                  titleText: AppString.text_payment_method.tr,
+                  titleText: AppString.text_feedback.tr,
                   subtext: "you have 02 cards",
                   titleColor: color,
                   subtextColor:

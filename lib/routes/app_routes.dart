@@ -34,6 +34,7 @@ abstract class Routes {
   static const CAHANGE_PASSWORD = _Paths.CAHANGE_PASSWORD;
   static const FLIGHT = _Paths.FLIGHT;
   static const DOCTOR_LIST = _Paths.DOCTOR_LIST;
+  static const DOCTOR_PROFILE_VIEW = _Paths.DOCTOR_PROFILE_VIEW;
 
 }
 
@@ -71,6 +72,7 @@ abstract class _Paths {
   static const CAHANGE_PASSWORD= "/change_pass_screen";
   static const FLIGHT= "/flight_screen";
   static const DOCTOR_LIST= "/doctor_list_screen";
+  static const DOCTOR_PROFILE_VIEW= "/doctor_profile_view_screen";
 
 
 }

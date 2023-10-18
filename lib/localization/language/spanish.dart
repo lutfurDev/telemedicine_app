@@ -130,7 +130,7 @@ Map<String, String> span = {
   AppString.text_quantity: "Cantidad: ",
   AppString.text_total_ammount: "Total:",
   AppString.text_details: "Detalles",
-  AppString.text_payment_method: "Método de pago",
+  AppString.text_feedback: "Método de pago",
   AppString.text_add_payment_method: "Agregar método de pago",
   AppString.text_add_shpping_address: "Agregar dirección de envío",
   AppString.text_edit_shpping_address: "Editar dirección de envío",

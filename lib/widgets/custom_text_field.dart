@@ -1,5 +1,4 @@
 import 'package:telemedicine_app/utils/app_color.dart';
-import 'package:telemedicine_app/utils/app_layout.dart';
 import 'package:telemedicine_app/utils/app_style.dart';
 import 'package:telemedicine_app/widgets/custom_spacer.dart';
 import 'package:flutter/cupertino.dart';

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:telemedicine_app/utils/app_color.dart';
 import 'package:telemedicine_app/utils/app_layout.dart';
@@ -38,8 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
-
   SliverToBoxAdapter get sliverToBoxAdapter {
     return  SliverToBoxAdapter(
       child: Padding(
@@ -50,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             customSpacerHeight(height: 25),
            _bannerLayout(),
             customSpacerHeight(height: 8),
-            tileTextLayout(context: context, text: AppString.text_doctor_nearly_you.tr, onAction: () => Get.toNamed(Routes.VIEW_ALL)),
+            tileTextLayout(context: context, text: AppString.text_doctor_nearly_you.tr, onAction: () => Get.toNamed(Routes.DOCTOR_LIST)),
             _doctorsLayout(context),
             customSpacerHeight(height: 8),
 

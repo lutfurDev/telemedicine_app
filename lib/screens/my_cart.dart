@@ -164,7 +164,7 @@ class MyCart extends StatelessWidget {
         customSpacerHeight(height: 12),
         Image.asset(Images.google_map),
         Text(
-          AppString.text_payment_method.tr,
+          AppString.text_feedback.tr,
           style: AppStyle.normal_text_black.copyWith(
               color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),
               fontWeight: FontWeight.w200),
