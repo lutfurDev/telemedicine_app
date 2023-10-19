@@ -35,6 +35,8 @@ abstract class Routes {
   static const FLIGHT = _Paths.FLIGHT;
   static const DOCTOR_LIST = _Paths.DOCTOR_LIST;
   static const DOCTOR_PROFILE_VIEW = _Paths.DOCTOR_PROFILE_VIEW;
+  static const MESSAGE_UI = _Paths.MESSAGE_UI;
+  static const MEDICINE_LIST = _Paths.MEDICINE_LIST;
 
 }
 
@@ -73,6 +75,8 @@ abstract class _Paths {
   static const FLIGHT= "/flight_screen";
   static const DOCTOR_LIST= "/doctor_list_screen";
   static const DOCTOR_PROFILE_VIEW= "/doctor_profile_view_screen";
+  static const MESSAGE_UI= "/message_screen_ui";
+  static const MEDICINE_LIST= "/medicine_screen_list";
 
 
 }

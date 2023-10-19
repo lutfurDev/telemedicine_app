@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:telemedicine_app/screens/offer.dart';
-import '../screens/cart_screen.dart';
-import '../screens/favorite.dart';
+import 'package:telemedicine_app/screens/message.dart';
 import '../screens/home.dart';
 import '../screens/profile.dart';
 import 'app_string.dart';
@@ -97,9 +95,7 @@ final List _onboardDescription = [
 
 final screensLayoutForBtnNav = <Widget>[
   const HomeScreen(),
-  const CartScreen(),
-  const OfferScreen(),
-  const FavoriteScreen(),
+  const MessageScreen(),
   const ProfileScreen(),
 ];
 

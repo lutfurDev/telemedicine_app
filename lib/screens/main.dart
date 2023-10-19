@@ -36,16 +36,7 @@ class _HomeState extends State<MainScreen> {
           label: AppString.text_home.tr),
       BottomNavigationBarItem(
           icon: Obx(() => _cartLayout(context)),
-          label: AppString.text_booking.tr.tr),
-
-      BottomNavigationBarItem(
-          icon: _btnNavIcon(icon: Icons.local_offer_outlined),
-          activeIcon: _btnNavIcon(icon: Icons.local_offer),
-          label: AppString.text_offer.tr),
-      BottomNavigationBarItem(
-          icon: _btnNavIcon(icon: Icons.send),
-          activeIcon: _btnNavIcon(icon: Icons.send),
-          label: AppString.text_inbox.tr),
+          label: AppString.text_message.tr.tr),
       BottomNavigationBarItem(
           icon: _btnNavIcon(icon: CupertinoIcons.person_alt_circle),
           activeIcon: _btnNavIcon(icon: CupertinoIcons.person_alt_circle_fill),
@@ -96,33 +87,15 @@ class _HomeState extends State<MainScreen> {
                 style: AppStyle.normal_text
                     .copyWith(color: Theme.of(context).cardColor),
               ),
-              child: const Icon(Icons.shopping_bag_outlined),
+              child: const Icon(CupertinoIcons.chat_bubble_text),
             ),
           )
         : const Icon(
-      Icons.shopping_bag_outlined,
+      CupertinoIcons.chat_bubble_text,
             size: 25,
           );
   }
 
-  _wishlistLayout(BuildContext context) {
-    var wishController = Get.find<WishlistController>();
-    return wishController.wishlistIndex.isNotEmpty
-        ? Center(
-            child: badges.Badge(
-              badgeContent: Text(
-                wishController.wishlistIndex.length.toString(),
-                style: AppStyle.normal_text
-                    .copyWith(color: Theme.of(context).cardColor),
-              ),
-              child: const Icon(Icons.shopping_bag),
-            ),
-          )
-        : const Icon(
-            Icons.favorite_border,
-            size: 25,
-          );
-  }
 }
 
 Future<bool> _onWillPop(BuildContext context) async {

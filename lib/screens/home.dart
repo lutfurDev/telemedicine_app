@@ -163,7 +163,6 @@ class _HomeScreenState extends State<HomeScreen> {
             top: 15,
             child:  SizedBox(width:AppLayout.getHeight(100) ,
               height: AppLayout.getHeight(76),
-
               child:Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radiusDefault),

@@ -113,7 +113,7 @@ class TopCategoryLayout extends StatelessWidget {
                 ),
                 const Spacer(),
                 _dashboardLayout(
-                    onAction: ()=>Get.toNamed(Routes.FLIGHT),
+                    onAction: ()=>Get.toNamed(Routes.MEDICINE_LIST),
                     subtext: "Order medicine",
 
                     context: context, icon: Icons.medical_services_outlined, text: AppString.text_medicin.tr),
@@ -159,14 +159,9 @@ class TopCategoryLayout extends StatelessWidget {
                 Text(
                   text,
                   style: AppStyle.normal_text_black
-                      .copyWith(color: AppColor.normalTextColor),
+                      .copyWith(color: Theme.of(context).colorScheme.onPrimary),
                 ),
 
-                // Text(
-                //   subtext,
-                //   style: AppStyle.normal_text_black
-                //       .copyWith(color: AppColor.normalTextColor.withOpacity(0.5),fontSize: Dimensions.fontSizeDefault-3),
-                // )
               ],
             )),
 

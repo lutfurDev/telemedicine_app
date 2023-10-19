@@ -68,6 +68,7 @@ class AppString {
   static String text_tour="Tour";
   static String text_diagnostic="Diagnostic";
   static String text_doctors="Doctors";
+  static String text_message="Message";
 
 
 
@@ -225,6 +226,7 @@ static String text_items="items";
   static const String password = "Password";
   static const String text_save_address = "SAVE ADDRESS";
   static const String text_save = "SAVE";
+  static const String text_countinue = "Continue";
 
 
 

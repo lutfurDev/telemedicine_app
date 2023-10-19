@@ -1,9 +1,6 @@
-import 'package:telemedicine_app/screens/cart_screen.dart';
 import 'package:telemedicine_app/screens/doctor_list.dart';
-import 'package:telemedicine_app/screens/favorite.dart';
 import 'package:telemedicine_app/screens/forget_password.dart';
 import 'package:telemedicine_app/screens/my%20reviews.dart';
-import 'package:telemedicine_app/screens/my_order.dart';
 import 'package:telemedicine_app/screens/notification.dart';
 import 'package:telemedicine_app/screens/otp_verification.dart';
 import 'package:telemedicine_app/screens/product_details.dart';
@@ -11,23 +8,17 @@ import 'package:telemedicine_app/screens/profile.dart';
 import 'package:telemedicine_app/screens/setting.dart';
 import 'package:telemedicine_app/screens/sign_in.dart';
 import 'package:telemedicine_app/screens/sing_up.dart';
-import 'package:telemedicine_app/screens/view_all.dart';
 import 'package:get/get.dart';
-import '../screens/add_payment_method.dart';
-import '../screens/add_shipping_address.dart';
 import '../screens/change_password.dart';
+import '../screens/chating_screen.dart';
 import '../screens/doctor_view_details.dart';
-import '../screens/edit_shipping_address.dart';
-import '../screens/filter_screen.dart';
-import '../screens/flight.dart';
 import '../screens/home.dart';
 import '../screens/main.dart';
-import '../screens/my_cart.dart';
+import '../screens/medicine_list.dart';
 import '../screens/onboarding.dart';
 import '../screens/payment_method.dart';
 import '../screens/product_review.dart';
 import '../screens/search_screen.dart';
-import '../screens/shipping_address.dart';
 import '../screens/splash.dart';
 import '../screens/view_profile.dart';
 import '../screens/write_a_review.dart';
@@ -53,22 +44,13 @@ class AppPages {
       name: _Paths.ONBOARD_SCREEN,
       page: () => OnboardScreen(),
     ),
-    GetPage(
-      name: _Paths.CART,
-      page: () => const CartScreen(),
-    ),
-    GetPage(
-      name: _Paths.FAVORITE,
-      page: () =>  FavoriteScreen(),
-    ),
+
+
     GetPage(
       name: _Paths.PROFILE,
       page: () =>  const ProfileScreen(),
     ),
-    GetPage(
-      name: _Paths.ORDER,
-      page: () => const MyOrderScreen(),
-    ),
+
     GetPage(
       name: _Paths.SIGN_IN,
       page: () =>  const SignInScreen(),
@@ -90,14 +72,8 @@ class AppPages {
       page: () =>   const ProductDetails(),
     ),
 
-    GetPage(
-      name: _Paths.FAVORITE,
-      page: () =>    const FavoriteScreen(),
-    ),
-    GetPage(
-      name: _Paths.VIEW_ALL,
-      page: () =>   const ViewAllScreen(),
-    ),
+
+
 
     GetPage(
       name: _Paths.SEARCH_SCREEN,
@@ -108,24 +84,14 @@ class AppPages {
       page: () =>    const NotificationScreen(),
     ),
 
-    GetPage(
-      name: _Paths.MY_CART_SCREEN,
-      page: () =>  const MyCart(),
-    ),
+
     GetPage(
       name: _Paths.PAYMENT_METHOD_SCREEN,
       page: () =>  const PaymentMethodScreen(),
     ),
 
-    GetPage(
-      name: _Paths.ADD_PAYMENT_METHOD,
-      page: () =>  const AddPaymentMethod(),
-    ),
 
-    GetPage(
-      name: _Paths.ADD_SHPPING_ADDRESS,
-      page: () =>   AddShippingAddress(),
-    ),
+
     GetPage(
       name: _Paths.MY_REVIEW,
       page: () =>   const MyReviewScreen(),
@@ -136,10 +102,7 @@ class AppPages {
       page: () =>   const SettingScreen(),
     ),
 
-   GetPage(
-      name: _Paths.FILTER_SCREEN,
-      page: () =>   const FilterScreen(),
-    ),
+
 
     GetPage(
       name: _Paths.PRODUCT_REVIEW_SCREEN,
@@ -152,14 +115,6 @@ class AppPages {
     ),
 
     GetPage(
-      name: _Paths.SHIPPING_ADDRESS,
-      page: () =>    const ShippingAddress(),
-    ),
-    GetPage(
-      name: _Paths.EDIT_SHIPPING_ADDRESS,
-      page: () =>    EditShippingAddress(),
-    ),
-    GetPage(
       name: _Paths.MY_PRIFILE,
       page: () =>    const ViewProfile(),
     ),
@@ -168,19 +123,27 @@ class AppPages {
       name: _Paths.CAHANGE_PASSWORD,
       page: () =>     ChangePassword(),
     ),
-    GetPage(
-      name: _Paths.FLIGHT,
-      page: () => const FlightScreen(),
-    ),
+
 
     GetPage(
       name: _Paths.DOCTOR_LIST,
       transition: Transition.size,
       page: () => const DoctorListScreen(),
-    ),  GetPage(
+    ),
+    GetPage(
       name: _Paths.DOCTOR_PROFILE_VIEW,
       transition: Transition.size,
       page: () => const DoctorViewDetails(),
+    ),
+
+    GetPage(
+      name: _Paths.MESSAGE_UI,
+      transition: Transition.size,
+      page: () => const MessageUIScreen(),
+    ),  GetPage(
+      name: _Paths.MEDICINE_LIST,
+      transition: Transition.size,
+      page: () => const MedicineListScreen(),
     ),
 
   ];
