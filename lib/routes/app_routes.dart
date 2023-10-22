@@ -37,6 +37,8 @@ abstract class Routes {
   static const DOCTOR_PROFILE_VIEW = _Paths.DOCTOR_PROFILE_VIEW;
   static const MESSAGE_UI = _Paths.MESSAGE_UI;
   static const MEDICINE_LIST = _Paths.MEDICINE_LIST;
+  static const DIAGNOSTIC_LIST = _Paths.DIAGNOSTIC_LIST;
+  static const DIAGNOSTIC_LIST_ADDED = _Paths.DIAGNOSTIC_LIST_ADDED;
 
 }
 
@@ -77,6 +79,9 @@ abstract class _Paths {
   static const DOCTOR_PROFILE_VIEW= "/doctor_profile_view_screen";
   static const MESSAGE_UI= "/message_screen_ui";
   static const MEDICINE_LIST= "/medicine_screen_list";
+  static const DIAGNOSTIC_LIST= "/diagnostic_screen_list";
+  static const DIAGNOSTIC_LIST_ADDED= "/diagnostic_added_screen_list";
+
 
 
 }

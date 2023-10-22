@@ -119,7 +119,7 @@ class TopCategoryLayout extends StatelessWidget {
                     context: context, icon: Icons.medical_services_outlined, text: AppString.text_medicin.tr),
                 const Spacer(),
                 _dashboardLayout(
-                    onAction: ()=>Get.toNamed(Routes.FLIGHT),
+                    onAction: ()=>Get.toNamed(Routes.DIAGNOSTIC_LIST),
                     subtext: "Book test"
 ,
                     context: context,

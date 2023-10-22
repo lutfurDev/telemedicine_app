@@ -78,27 +78,11 @@ class ProfileScreen extends StatelessWidget {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               _themeLayout(color, dividerColor, context),
-              dividedSectionLayout(
-                  cardIcon: CupertinoIcons.cart,
-                  titleText: AppString.text_my_orders.tr,
-                  subtext: "Already have 10 orders",
-                  titleColor: color,
-                  subtextColor:
-                      Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
-                  dividerColor: dividerColor,
-                  onAction: () => Get.toNamed(Routes.ORDER)),
-              dividedSectionLayout(
-                  cardIcon: CupertinoIcons.info,
-                  titleText: AppString.text_shipping_address.tr,
-                  subtext: "03 Address",
-                  subtextColor:
-                      Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),
-                  titleColor: color,
-                  dividerColor: dividerColor,
-                  onAction: () => Get.toNamed(Routes.SHIPPING_ADDRESS)),
+
+
               dividedSectionLayout(
                   cardIcon: CupertinoIcons.money_dollar_circle,
-                  titleText: AppString.text_feedback.tr,
+                  titleText: AppString.text_payment_method.tr,
                   subtext: "you have 02 cards",
                   titleColor: color,
                   subtextColor:

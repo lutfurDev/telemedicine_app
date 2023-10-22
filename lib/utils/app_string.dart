@@ -34,6 +34,7 @@ class AppString {
 
   static String text_add_to_cart = "Add To Cart";
   static String text_add_new_card = "Add New Card";
+  static String text_payment_method = "Payment method";
   static String text_confirm_oder = "Confirm Oder";
   static String text_enter_confirm_pass = "Confirm password";
   static String text_easy_safe_payment = "Easy & Safe Payment";
@@ -65,6 +66,7 @@ class AppString {
   static String text_flight="Flight";
   static String text_hotel="Hotel";
   static String text_medicin="Medicine";
+  static String text_book_test="Book test & package online";
   static String text_tour="Tour";
   static String text_diagnostic="Diagnostic";
   static String text_doctors="Doctors";
@@ -161,6 +163,7 @@ static String text_feedback="FEEDBACK";
 static String text_specialation="SPECIALIZATION";
 static String text_add_payment_method=" Add payment method";
 static String text_add_shpping_address=" Add Shipping Address";
+static String text_top_specialist="Top Specialities :";
 static String text_edit_shpping_address=" Edit Shipping Address";
 static String text_edit_profile=" Edit Profile";
 static String text_shpping_address=" Shipping Address";

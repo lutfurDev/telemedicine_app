@@ -1,3 +1,5 @@
+import 'package:telemedicine_app/screens/add_payment_method.dart';
+import 'package:telemedicine_app/screens/diagnostic_screen.dart';
 import 'package:telemedicine_app/screens/doctor_list.dart';
 import 'package:telemedicine_app/screens/forget_password.dart';
 import 'package:telemedicine_app/screens/my%20reviews.dart';
@@ -11,6 +13,7 @@ import 'package:telemedicine_app/screens/sing_up.dart';
 import 'package:get/get.dart';
 import '../screens/change_password.dart';
 import '../screens/chating_screen.dart';
+import '../screens/diagnostic_added_view.dart';
 import '../screens/doctor_view_details.dart';
 import '../screens/home.dart';
 import '../screens/main.dart';
@@ -82,6 +85,9 @@ class AppPages {
     GetPage(
       name: _Paths.NOTIFICATION_SCREEN,
       page: () =>    const NotificationScreen(),
+    ),  GetPage(
+      name: _Paths.ADD_PAYMENT_METHOD,
+      page: () =>    const AddPaymentMethod(),
     ),
 
 
@@ -140,10 +146,22 @@ class AppPages {
       name: _Paths.MESSAGE_UI,
       transition: Transition.size,
       page: () => const MessageUIScreen(),
-    ),  GetPage(
+    ),
+
+    GetPage(
       name: _Paths.MEDICINE_LIST,
       transition: Transition.size,
       page: () => const MedicineListScreen(),
+    ),
+    GetPage(
+      name: _Paths.DIAGNOSTIC_LIST,
+      transition: Transition.size,
+      page: () => const DiagnosticListScreen(),
+    ),
+ GetPage(
+      name: _Paths.DIAGNOSTIC_LIST_ADDED,
+      transition: Transition.size,
+      page: () => const DiagnosticListAddedViewScreen(),
     ),
 
   ];

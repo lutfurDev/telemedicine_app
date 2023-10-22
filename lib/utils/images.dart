@@ -40,6 +40,7 @@ class Images {
   static String log_out = 'assets/json/logout.json';
   static String no_data = 'assets/json/no_data.json';
   static String medicine = 'assets/images/medicin.jpg';
+  static String test = 'assets/images/test.jpg';
 
 }
 

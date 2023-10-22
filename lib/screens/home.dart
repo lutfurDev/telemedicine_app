@@ -50,7 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
             tileTextLayout(context: context, text: AppString.text_doctor_nearly_you.tr, onAction: () => Get.toNamed(Routes.DOCTOR_LIST)),
             _doctorsLayout(context),
             customSpacerHeight(height: 8),
-
             tileTextLayout(context: context, text: AppString.text_fratured.tr, onAction: (){},isHideText: true),
             customSpacerHeight(height: 8),
             _featuredLayout(context),
