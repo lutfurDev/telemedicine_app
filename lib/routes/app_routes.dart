@@ -3,7 +3,7 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
 
-  static const SPLASH_SCREEN = _Paths.MAIN;
+  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const SIGN_IN = _Paths.SIGN_IN;
   static const SIGN_UP = _Paths.SIGN_UP;
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
@@ -39,6 +39,7 @@ abstract class Routes {
   static const MEDICINE_LIST = _Paths.MEDICINE_LIST;
   static const DIAGNOSTIC_LIST = _Paths.DIAGNOSTIC_LIST;
   static const DIAGNOSTIC_LIST_ADDED = _Paths.DIAGNOSTIC_LIST_ADDED;
+  static const BOOK_SCREEN = _Paths.BOOK_SCREEN;
 
 }
 
@@ -81,7 +82,6 @@ abstract class _Paths {
   static const MEDICINE_LIST= "/medicine_screen_list";
   static const DIAGNOSTIC_LIST= "/diagnostic_screen_list";
   static const DIAGNOSTIC_LIST_ADDED= "/diagnostic_added_screen_list";
-
-
+  static const BOOK_SCREEN= "/book_screen";
 
 }

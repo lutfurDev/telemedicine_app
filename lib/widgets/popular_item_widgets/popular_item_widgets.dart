@@ -112,20 +112,16 @@ productViewLayout({image, productName, status, required price, placeholder, requ
     child: GestureDetector(
       onTap: onAction,
       child: SizedBox(
-        child: Padding(
-          padding:
-          const EdgeInsets.only(left: 18.0, right: 18, top: 18, bottom: 8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _productImage(image: image, placeholder: placeholder),
-              _productInfo(
-                  context: context,
-                  status: status,
-                  price: price,
-                  productName: productName),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _productImage(image: image, placeholder: placeholder),
+            _productInfo(
+                context: context,
+                status: status,
+                price: price,
+                productName: productName),
+          ],
         ),
       ),
     ),
@@ -133,48 +129,49 @@ productViewLayout({image, productName, status, required price, placeholder, requ
 }
 
 _productImage({image, placeholder}) {
-  return Expanded(
-    child: FadeInImage(
-      image: AssetImage(image),
-      placeholder: AssetImage(placeholder),
-      imageErrorBuilder: (context, error, stackTrace) {
-        return SizedBox(
-            height: AppLayout.getHeight(110),
-            width: AppLayout.getWidth(120),
-            child: Image.asset(placeholder));
-      },
-      fit: BoxFit.contain,
-    ),
+  return SizedBox(
+      height: AppLayout.getHeight(110),
+      width: double.infinity,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          image: DecorationImage(image:AssetImage(placeholder),fit: BoxFit.fill)
+        ),
+      )
+
   );
 }
 
 _productInfo({required BuildContext context, status, price, productName}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      customSpacerHeight(height: 16),
-      Text(
-        status ?? "BEST SELLER",
-        overflow: TextOverflow.ellipsis,
-        style: AppStyle.normal_text.copyWith(
-            color: AppColor.primaryColor, overflow: TextOverflow.ellipsis),
-      ),
-      Text(
-        productName,
-        overflow: TextOverflow.ellipsis,
-        style: AppStyle.normal_text.copyWith(
-          color: Theme.of(context).colorScheme.onPrimary,
-          fontWeight: FontWeight.w600,
-          fontSize: Dimensions.fontSizeMid - 2,
+  return Padding(
+    padding: const EdgeInsets.only(left: 8.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        customSpacerHeight(height: 16),
+        Text(
+          status ?? "BEST SELLER",
+          overflow: TextOverflow.ellipsis,
+          style: AppStyle.normal_text.copyWith(
+              color: AppColor.primaryColor, overflow: TextOverflow.ellipsis),
         ),
-      ),
-      Text(
-        "\$$price",
-        overflow: TextOverflow.ellipsis,
-        style: AppStyle.normal_text.copyWith(
+        Text(
+          productName,
+          overflow: TextOverflow.ellipsis,
+          style: AppStyle.normal_text.copyWith(
             color: Theme.of(context).colorScheme.onPrimary,
-            fontSize: Dimensions.fontSizeMid - 2),
-      ),
-    ],
+            fontWeight: FontWeight.w600,
+            fontSize: Dimensions.fontSizeMid - 2,
+          ),
+        ),
+        Text(
+          "\$$price",
+          overflow: TextOverflow.ellipsis,
+          style: AppStyle.normal_text.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: Dimensions.fontSizeMid - 2),
+        ),
+      ],
+    ),
   );
 }

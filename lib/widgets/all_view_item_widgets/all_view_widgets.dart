@@ -37,12 +37,6 @@ Widget allItemViewWidget(
           Get.find<AddToCartController>()
               .addToCart(productModel: itemIndex, context: context);
 
-          isHideToast == false
-              ? showToast(
-                  context: context,
-                  text: AppString.text_succesful.tr,
-                  subtext: AppString.text_cart_add_succesful.tr)
-              : "";
         }),
       ],
     ),

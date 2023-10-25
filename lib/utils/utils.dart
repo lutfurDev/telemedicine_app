@@ -21,6 +21,8 @@ List  get onboardDescriptionIndex=>_onboardDescription;
 
 List<String>  get countyList=>_county;
 List<String>  get username=>_reviewerName;
+List<String>  get dayIndex=>_day;
+List<String>  get dayIndexC=>_dayCount;
 
 
 
@@ -57,6 +59,24 @@ List<String> _reviewerName = [
   "Angelic",
   "Rifat",
   "TurboSlayer",
+];
+
+List<String> _day = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",  "Fri",  "Sat",
+];
+
+List<String> _dayCount = [
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
 ];
 
 

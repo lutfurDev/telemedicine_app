@@ -11,6 +11,9 @@ class AppString {
   static String text_view_profile = "View Profile";
   static String text_hot_deals = "Hot Deals";
   static String text_doctor_nearly_you = "Doctor nearly you";
+  static String text_choose_your_slot = "Choose your slot";
+  static String text_morning = "Morning";
+  static String text_eveing = "Evening";
   static String text_special = "Special Offers";
   static String text_fratured = "Featured";
   static String text_view_details = "View Details";

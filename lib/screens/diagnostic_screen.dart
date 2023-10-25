@@ -37,28 +37,24 @@ class DiagnosticListScreen extends StatelessWidget {
               SizedBox(
                 height: AppLayout.getHeight(54),
                 width: AppLayout.getWidth(180),
-                child: Card(
-                  elevation: 0,
-                  shape: roundedRectangleBorder,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "3 medicine added",
-                          style: AppStyle.normal_text.copyWith(
-                              color: Theme.of(context).colorScheme.onPrimary,
-                              fontSize: Dimensions.fontSizeDefault),
-                        ),
-                        Text(
-                          "\$45",
-                          style: AppStyle.normal_text.copyWith(
-                              color: AppColor.primaryColor,
-                              fontSize: Dimensions.fontSizeDefault),
-                        )
-                      ],
-                    ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "3 medicine added",
+                        style: AppStyle.normal_text.copyWith(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                            fontSize: Dimensions.fontSizeDefault),
+                      ),
+                      Text(
+                        "\$45",
+                        style: AppStyle.normal_text.copyWith(
+                            color: AppColor.primaryColor,
+                            fontSize: Dimensions.fontSizeDefault),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -67,7 +63,6 @@ class DiagnosticListScreen extends StatelessWidget {
                 buttonText: AppString.text_countinue.tr,
                 onPressed: (){
                   Get.toNamed(Routes.DIAGNOSTIC_LIST_ADDED);
-                  print("object");
                 },
                 buttonColor: AppColor.primaryColor,
                 isButtonExpanded: false,

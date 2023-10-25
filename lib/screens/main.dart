@@ -6,11 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import '../controller/add_to_cart_controller.dart';
-import '../controller/wishList_controller.dart';
 import '../utils/app_color.dart';
 import '../utils/dimensions.dart';
-import 'package:badges/badges.dart' as badges;
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -35,7 +32,7 @@ class _HomeState extends State<MainScreen> {
           activeIcon: _btnNavIcon(icon: Icons.home_filled),
           label: AppString.text_home.tr),
       BottomNavigationBarItem(
-          icon: Obx(() => _cartLayout(context)),
+          icon:  _cartLayout(context),
           label: AppString.text_message.tr.tr),
       BottomNavigationBarItem(
           icon: _btnNavIcon(icon: CupertinoIcons.person_alt_circle),
@@ -78,19 +75,7 @@ class _HomeState extends State<MainScreen> {
 
 
   _cartLayout(BuildContext context) {
-    var cartController = Get.find<AddToCartController>();
-    return cartController.addToArray.isNotEmpty
-        ? Center(
-            child: badges.Badge(
-              badgeContent: Text(
-                Get.find<AddToCartController>().addToArray.length.toString(),
-                style: AppStyle.normal_text
-                    .copyWith(color: Theme.of(context).cardColor),
-              ),
-              child: const Icon(CupertinoIcons.chat_bubble_text),
-            ),
-          )
-        : const Icon(
+    return  const Icon(
       CupertinoIcons.chat_bubble_text,
             size: 25,
           );
@@ -106,3 +91,7 @@ Future<bool> _onWillPop(BuildContext context) async {
   }
   return false;
 }
+
+
+// medicine module add text alignment
+//medicine page add ecommerce idea

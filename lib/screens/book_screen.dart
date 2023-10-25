@@ -1,22 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:telemedicine_app/routes/app_pages.dart';
 import 'package:telemedicine_app/utils/app_style.dart';
 import 'package:telemedicine_app/utils/dimensions.dart';
 import 'package:telemedicine_app/utils/images.dart';
+import 'package:telemedicine_app/utils/utils.dart';
 import 'package:telemedicine_app/widgets/custom_app_button.dart';
 import 'package:telemedicine_app/widgets/custom_spacer.dart';
+import 'package:telemedicine_app/widgets/custom_titleText_layout.dart';
 import '../utils/app_color.dart';
 import '../utils/app_layout.dart';
 import '../utils/app_string.dart';
 import '../widgets/auth_view_widget.dart';
 import '../widgets/home_view_widgets.dart';
 
-class DoctorViewDetails extends StatelessWidget {
+class BookScreen extends StatelessWidget {
   final String? name;
   final String? drs;
-  const DoctorViewDetails({super.key, this.name, this.drs});
+  const BookScreen({super.key, this.name, this.drs});
 
   @override
   Widget build(BuildContext context) {
@@ -136,15 +137,15 @@ class DoctorViewLayoutLayout extends StatelessWidget {
       children: [
         Positioned(
             child: GestureDetector(
-          onTap: onAction,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: AppLayout.getHeight(6)),
-            child: SizedBox(
-              width: AppLayout.getWidth(350),
-              child: _offerViewLayout(context),
-            ),
-          ),
-        )),
+              onTap: onAction,
+              child: Padding(
+                padding: EdgeInsets.only(bottom: AppLayout.getHeight(6)),
+                child: SizedBox(
+                  width: AppLayout.getWidth(350),
+                  child: _offerViewLayout(context),
+                ),
+              ),
+            )),
       ],
     );
   }
@@ -154,30 +155,16 @@ SliverToBoxAdapter sliverToBoxAdapter(context) {
   return SliverToBoxAdapter(
     child: SizedBox(
       child: Padding(
-        padding: marginLayout.copyWith(top: 0),
-        child:Column(
-          children: [
-
-
-            _addressLayout(context),
-            customSpacerHeight(height: 25),
-            Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: ()=>Get.back(),
-                    child: Container(
-                      height: 47,
-                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.radiusDefault),border: Border.all(width: 1,color: AppColor.primaryColor)),
-                      child: Center(child: Text("GIVE FEEDBACK",style: AppStyle.normal_text_black.copyWith(color: AppColor.primaryColor),)),
-                    ),
-                  ),
-                ),              customSpacerWidth(width: 14),
-                Expanded(child: AppButton(buttonText: "Book", onPressed: ()=>Get.toNamed(Routes.BOOK_SCREEN), buttonColor: AppColor.primaryColor,isButtonExpanded: false,)),
-              ],
-            )
-          ],
-        )
+          padding: marginLayout.copyWith(top: 0),
+          child:Column(
+            children: [
+              tileTextLayout(context: context, text: AppString.text_choose_your_slot.tr, isHideText: true,),
+              _dateSlotLayout(),
+              _addressLayout(context),
+               customSpacerHeight(height: 25),
+              _buttonLayout()
+            ],
+          )
 
 
 
@@ -186,7 +173,48 @@ SliverToBoxAdapter sliverToBoxAdapter(context) {
   );
 }
 
+_dateSlotLayout() {
+  var currentIndex=0.obs;
+  return SizedBox(
+    height: AppLayout.getHeight(60),
+    child: ListView.builder(
+      padding: const EdgeInsets.all(0),
+      itemCount: 7,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) {
+      return GestureDetector(
+        onTap: (){
+          currentIndex.value=index;
+        },
+        child: Obx(() => Column(
+          children: [
+            Text(dayIndex[index],style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary),),
+            SizedBox(
+                width: AppLayout.getWidth(50),
+                child: Card(
+                  elevation: 0,
+                  color: currentIndex.value==index? AppColor.primaryColor:Theme.of(context).cardColor,
+                  shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(6),side: BorderSide(width: 1,color: AppColor.primaryColor)),
+                  child: Column(
+                    children: [
+                      Text(dayIndexC[index],style: AppStyle.normal_text_black.copyWith(color: currentIndex.value==index?Theme.of(context).cardColor:AppColor.primaryColor,fontSize: 20),),
+                    ],
+                  ),
 
+                )),
+          ],
+        )),
+      );
+    },),
+  );
+}
+
+_buttonLayout() {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: AppButton(buttonText: "Back", onPressed: ()=>Get.back(), buttonColor: AppColor.primaryColor,isButtonExpanded: false,),
+  );
+}
 
 _offerViewLayout(BuildContext context) {
   return Stack(
@@ -201,7 +229,7 @@ _offerViewLayout(BuildContext context) {
               elevation: 0,
               shape: roundedRectangleBorder.copyWith(
                   borderRadius:
-                      BorderRadius.circular(Dimensions.radiusDefault)),
+                  BorderRadius.circular(Dimensions.radiusDefault)),
               shadowColor: Colors.grey.withOpacity(0.2),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -340,104 +368,93 @@ _addressLayout(BuildContext context) {
         borderRadius:
         BorderRadius.circular(Dimensions.radiusDefault)),
     shadowColor: Colors.grey.withOpacity(0.2),
-    child: Padding(
-      padding: marginLayout,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          customSpacerHeight(height: 12),
-          
-          
-          
-         _bookingLayout(context: context,onAction: (){}),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
 
-          _divider(),
+        tileTextLayout(
+            context: context,
+            text: AppString.text_morning.tr,
+            isHideText: true),
 
-          _doctorActiveStatusLayout(context),
+        _morningIndexLayout(context: context,onAction: (){}),
 
-          _divider(),
-          Text(
-            AppString.text_address.tr,
-            style: AppStyle.normal_text_black.copyWith(
-                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),
-                fontWeight: FontWeight.w200),
-          ),
-          customSpacerHeight(height: 8),
-          Text(
-            "1802 Airport Road,USA",
-            style: AppStyle.normal_text_black.copyWith(
-                color: Theme.of(context).hintColor, fontWeight: FontWeight.w400),
-          ),
-          customSpacerHeight(height: 12),
-          Image.asset(Images.google_map),
-          Text(
-            AppString.text_feedback.tr,
-            style: AppStyle.normal_text_black.copyWith(
-                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),
-                fontWeight: FontWeight.w500),
-          ),
-          _feedBackLayout(context,"Very good,counters and efficient staff"),
-          _divider(),
-          Text(
-            AppString.text_specialation.tr,
-            style: AppStyle.normal_text_black.copyWith(
-                color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),
-                fontWeight: FontWeight.w500),
-          ),
-          _feedBackLayout(context,"Dermatologist"),
-          _feedBackLayout(context,"Psychologist"),
-          customSpacerHeight(height: 12),
+        tileTextLayout(
+            context: context,
+            text: AppString.text_eveing.tr,
+            isHideText: true),
+
+        _eveningIndexLayout(context: context,onAction: (){}),
 
 
 
 
-        ],
-      ),
+
+
+      ],
     ),
   );
 }
 
-_divider() {
-  return  const Padding(
-    padding: EdgeInsets.only(top: 5.0,bottom: 5),
-    child: Divider(),
+_eveningIndexLayout({ required BuildContext context,onAction}) {
+  var currentIndex=0.obs;
+  return  GridView.builder(
+    physics: const BouncingScrollPhysics(),
+    shrinkWrap: true,
+    gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio:2/.6,
+        crossAxisSpacing: 2,mainAxisSpacing: 2
+    ),
+    itemCount: 4,
+    padding: const EdgeInsets.all(0),
+    itemBuilder: (BuildContext context, int index) {
+     return  GestureDetector(
+       onTap: (){
+         currentIndex.value=index;
+       },
+       child: SizedBox(
+         child: Obx(() => Card(
+           elevation: 0,
+           shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(6),side: BorderSide(color:AppColor.primaryColor)),
+           color: currentIndex.value ==index?AppColor.primaryColor:Theme.of(context).cardColor,
+           child: Center(child: Text("06.30 To 7.30",style: AppStyle.normal_text_black.copyWith(color: currentIndex.value ==index?Theme.of(context).cardColor:AppColor.primaryColor,),)),
+         )),
+       ),
+     );
+    },
   );
 }
 
-_doctorActiveStatusLayout(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text("ClosedToDay",style: AppStyle.normal_text_black.copyWith(color: AppColor.errorColor,fontSize: Dimensions.fontSizeDefault-1),),
-      Text("9.20AM-9.30PM",style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),fontSize: Dimensions.fontSizeDefault-1),),
-      Text("All Timing",style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8),fontSize: Dimensions.fontSizeDefault-1),),
-
-
-    ],
+_morningIndexLayout({ required BuildContext context,onAction}) {
+  var currentIndex=0.obs;
+  return  GridView.builder(
+    physics: const BouncingScrollPhysics(),
+    shrinkWrap: true,
+    gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio:2/.6,
+        crossAxisSpacing: 2,mainAxisSpacing: 2
+    ),
+    itemCount: 4,
+    padding: const EdgeInsets.all(0),
+    itemBuilder: (BuildContext context, int index) {
+     return  GestureDetector(
+       onTap: (){
+         currentIndex.value=index;
+       },
+       child: SizedBox(
+         child: Obx(() => Card(
+           elevation: 0,
+           shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(6),side: BorderSide(color:AppColor.primaryColor)),
+           color: currentIndex.value ==index?AppColor.primaryColor:Theme.of(context).cardColor,
+           child: Center(child: Text("06.30 To 7.30",style: AppStyle.normal_text_black.copyWith(color: currentIndex.value ==index?Theme.of(context).cardColor:AppColor.primaryColor,),)),
+         )),
+       ),
+     );
+    },
   );
 }
 
-_bookingLayout({ required BuildContext context,onAction}) {
-  return  Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text("IN CLINIC : \$10",style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.8)),),
-      GestureDetector(
-        onTap: onAction,
-        child: Container(
-          height: 30,
-          width: 90,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(Dimensions.radiusDefault),border: Border.all(width: 1,color: AppColor.primaryColor)),
-          child: Center(child: Text("Book",style: AppStyle.normal_text_black.copyWith(color: AppColor.primaryColor),)),
-        ),
-      ),
-    ],
-  );
-}
-_feedBackLayout(BuildContext context,text) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 4.0),
-    child: Text(text,style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.7),overflow: TextOverflow.ellipsis,fontSize: Dimensions.fontSizeDefault-1),),
-  );
-}
+
 

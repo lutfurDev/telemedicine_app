@@ -14,7 +14,6 @@ import '../widgets/category_widgets/category_widgets.dart';
 import '../widgets/custom_titleText_layout.dart';
 import '../widgets/home_view_widgets.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -24,7 +23,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var currentIndex = 0;
-  var  specialIndex=0;
+  var specialIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +37,26 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   SliverToBoxAdapter get sliverToBoxAdapter {
-    return  SliverToBoxAdapter(
+    return SliverToBoxAdapter(
       child: Padding(
-        padding: marginLayout.copyWith(left: 12,right: 12),
+        padding: marginLayout.copyWith(left: 12, right: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             customSpacerHeight(height: 25),
-           _bannerLayout(),
+            _bannerLayout(),
             customSpacerHeight(height: 8),
-            tileTextLayout(context: context, text: AppString.text_doctor_nearly_you.tr, onAction: () => Get.toNamed(Routes.DOCTOR_LIST)),
+            tileTextLayout(
+                context: context,
+                text: AppString.text_doctor_nearly_you.tr,
+                onAction: () => Get.toNamed(Routes.DOCTOR_LIST)),
             _doctorsLayout(context),
             customSpacerHeight(height: 8),
-            tileTextLayout(context: context, text: AppString.text_fratured.tr, onAction: (){},isHideText: true),
+            tileTextLayout(
+                context: context,
+                text: AppString.text_fratured.tr,
+                onAction: () {},
+                isHideText: true),
             customSpacerHeight(height: 8),
             _featuredLayout(context),
             customSpacerHeight(height: 12),
@@ -68,35 +74,35 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: bannerIndex.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return  Padding(
+          return Padding(
             padding: const EdgeInsets.only(right: 12.0),
             child: SizedBox(
               width: AppLayout.getWidth(300),
               child: Card(
                 elevation: 0,
-                shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(Dimensions.radiusDefault)),
+                shape: roundedRectangleBorder.copyWith(
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.radiusDefault)),
                 shadowColor: Colors.grey.withOpacity(0.2),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  child:Container(
+                  child: Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimensions.radiusDefault-1),
-                        image: DecorationImage(image: AssetImage(bannerIndex[index]),fit: BoxFit.fill)
-                    ),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radiusDefault - 1),
+                        image: DecorationImage(
+                            image: AssetImage(bannerIndex[index]),
+                            fit: BoxFit.fill)),
                   ),
                 ),
               ),
             ),
           );
-        },),
+        },
+      ),
     );
-
-
-
-
   }
-
 
   _doctorsLayout(BuildContext context) {
     return SizedBox(
@@ -105,8 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-        return _offerViewLayout(context);
-      },),
+          return _offerViewLayout(context);
+        },
+      ),
     );
   }
 
@@ -120,10 +127,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding:  EdgeInsets.only(left: AppLayout.getWidth(24)),
+                padding: EdgeInsets.only(left: AppLayout.getWidth(24)),
                 child: Card(
                   elevation: 0,
-                  shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(Dimensions.radiusDefault)),
+                  shape: roundedRectangleBorder.copyWith(
+                      borderRadius:
+                          BorderRadius.circular(Dimensions.radiusDefault)),
                   shadowColor: Colors.grey.withOpacity(0.2),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,61 +143,87 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Dr.Steve Robert",style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary),),
-                            Text("B.sc DDDD",style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.6),fontSize: Dimensions.fontSizeDefault-2),),
-                            Text("Epidemiologist",style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.6),fontSize: Dimensions.fontSizeDefault-2),),
-
+                            Text(
+                              "Dr.Steve Robert",
+                              style: AppStyle.normal_text_black.copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary),
+                            ),
+                            Text(
+                              "B.sc DDDD",
+                              style: AppStyle.normal_text_black.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimary
+                                      .withOpacity(0.6),
+                                  fontSize: Dimensions.fontSizeDefault - 2),
+                            ),
+                            Text(
+                              "Epidemiologist",
+                              style: AppStyle.normal_text_black.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onPrimary
+                                      .withOpacity(0.6),
+                                  fontSize: Dimensions.fontSizeDefault - 2),
+                            ),
                             const Spacer(),
-
                             Row(
                               children: [
-                                Icon(Icons.star,size: Dimensions.fontSizeDefault+3,color: AppColor.primaryColor,),
+                                Icon(
+                                  Icons.star,
+                                  size: Dimensions.fontSizeDefault + 3,
+                                  color: AppColor.primaryColor,
+                                ),
                                 customSpacerWidth(width: 2),
-                                Text("5.6".tr,style:AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.6),fontSize: Dimensions.fontSizeDefault-2),)
+                                Text(
+                                  "5.6".tr,
+                                  style: AppStyle.normal_text_black.copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onPrimary
+                                          .withOpacity(0.6),
+                                      fontSize: Dimensions.fontSizeDefault - 2),
+                                )
                               ],
                             ),
                           ],
                         ),
                       )
-
                     ],
                   ),
                 ),
               ),
             ),
           ),
-
           Positioned(
             top: 15,
-            child:  SizedBox(width:AppLayout.getHeight(100) ,
+            child: SizedBox(
+              width: AppLayout.getHeight(100),
               height: AppLayout.getHeight(76),
-              child:Container(
+              child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-                  image: DecorationImage(image: AssetImage(Images.banner_1),fit: BoxFit.fill)
-                ),
+                    borderRadius:
+                        BorderRadius.circular(Dimensions.radiusDefault),
+                    image: DecorationImage(
+                        image: AssetImage(Images.banner_1), fit: BoxFit.fill)),
               ),
-            ),),
-
-
-
+            ),
+          ),
         ],
       ),
     );
   }
 
-
-
-
-
   _specialOfferView(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: SizedBox(
         width: AppLayout.getWidth(230),
         child: Card(
           elevation: 0,
-          shape: roundedRectangleBorder.copyWith(borderRadius: BorderRadius.circular(Dimensions.radiusDefault)),
+          shape: roundedRectangleBorder.copyWith(
+              borderRadius: BorderRadius.circular(Dimensions.radiusDefault)),
           shadowColor: Colors.grey.withOpacity(0.2),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,11 +231,13 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: AppLayout.getHeight(115),
                 width: MediaQuery.of(context).size.width,
-                child:Container(
+                child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(Dimensions.radiusDefault),topRight: Radius.circular(Dimensions.radiusDefault)),
-                      image: DecorationImage(image: AssetImage(Images.offer),fit: BoxFit.fill)
-                  ),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(Dimensions.radiusDefault),
+                          topRight: Radius.circular(Dimensions.radiusDefault)),
+                      image: DecorationImage(
+                          image: AssetImage(Images.offer), fit: BoxFit.fill)),
                 ),
               ),
               Padding(
@@ -208,11 +245,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Lorem Ipsum is simply dummy text of the printing",maxLines: 3,style: AppStyle.normal_text_black.copyWith(color: Theme.of(context).colorScheme.onPrimary,fontSize: Dimensions.fontSizeDefault-1,overflow: TextOverflow.ellipsis),),
+                    Text(
+                      "Lorem Ipsum is simply dummy text of the printing",
+                      maxLines: 3,
+                      style: AppStyle.normal_text_black.copyWith(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          fontSize: Dimensions.fontSizeDefault - 1,
+                          overflow: TextOverflow.ellipsis),
+                    ),
                   ],
                 ),
               )
-
             ],
           ),
         ),
@@ -223,19 +266,13 @@ class _HomeScreenState extends State<HomeScreen> {
   _featuredLayout(BuildContext context) {
     return SizedBox(
       height: AppLayout.getHeight(200),
-
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
-
         itemBuilder: (context, index) {
           return _specialOfferView(context);
-        },),
+        },
+      ),
     );
-
   }
-
-  
 }
-
-

@@ -1,4 +1,5 @@
 import 'package:telemedicine_app/screens/add_payment_method.dart';
+import 'package:telemedicine_app/screens/book_screen.dart';
 import 'package:telemedicine_app/screens/diagnostic_screen.dart';
 import 'package:telemedicine_app/screens/doctor_list.dart';
 import 'package:telemedicine_app/screens/forget_password.dart';
@@ -29,7 +30,7 @@ part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
-  static const INITIAL = Routes.SPLASH_SCREEN;
+  static const INITIAL = Routes.MAIN;
   static final routes = [
     GetPage(
       name: _Paths.SPLASH_SCREEN,
@@ -101,6 +102,10 @@ class AppPages {
     GetPage(
       name: _Paths.MY_REVIEW,
       page: () =>   const MyReviewScreen(),
+    ),
+   GetPage(
+      name: _Paths.BOOK_SCREEN,
+      page: () =>   const BookScreen(),
     ),
 
     GetPage(
