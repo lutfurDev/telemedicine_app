@@ -12,6 +12,7 @@ class AppString {
   static String text_hot_deals = "Hot Deals";
   static String text_doctor_nearly_you = "Doctor nearly you";
   static String text_choose_your_slot = "Choose your slot";
+  static String text__view_calendar = "View Calendar";
   static String text_morning = "Morning";
   static String text_eveing = "Evening";
   static String text_special = "Special Offers";
@@ -20,6 +21,8 @@ class AppString {
   static String text_booking = "Booking";
   static String text_offer = "Offer";
   static String text_inbox = "Inbox";
+  static String text_audio_call=" Audio Call";
+  static String text_video_call=" Video Call";
 
 
 

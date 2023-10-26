@@ -157,8 +157,6 @@ SliverToBoxAdapter sliverToBoxAdapter(context) {
         padding: marginLayout.copyWith(top: 0),
         child:Column(
           children: [
-
-
             _addressLayout(context),
             customSpacerHeight(height: 25),
             Row(

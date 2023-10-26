@@ -30,112 +30,108 @@ part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.SPLASH_SCREEN;
   static final routes = [
     GetPage(
       name: _Paths.SPLASH_SCREEN,
+      transition: Transition.size,
       page: () => const SplashScreen(),
     ),
     GetPage(
       name: _Paths.MAIN,
+      transition: Transition.size,
       page: () => const MainScreen(),
     ),
     GetPage(
       name: _Paths.HOME,
-      page: () =>  const HomeScreen(),
+      transition: Transition.size,
+      page: () => const HomeScreen(),
     ),
     GetPage(
       name: _Paths.ONBOARD_SCREEN,
+      transition: Transition.size,
       page: () => OnboardScreen(),
     ),
-
-
     GetPage(
       name: _Paths.PROFILE,
-      page: () =>  const ProfileScreen(),
+      transition: Transition.size,
+      page: () => const ProfileScreen(),
     ),
-
     GetPage(
       name: _Paths.SIGN_IN,
-      page: () =>  const SignInScreen(),
+      transition: Transition.size,
+      page: () => const SignInScreen(),
     ),
     GetPage(
       name: _Paths.SIGN_UP,
-      page: () =>  const SignUpScreen(),
+      transition: Transition.size,
+      page: () => const SignUpScreen(),
     ),
     GetPage(
       name: _Paths.FORGOT_PASSWORD,
-      page: () =>  const ForgetPassword(),
+      transition: Transition.size,
+      page: () => const ForgetPassword(),
     ),
     GetPage(
       name: _Paths.OTP,
-      page: () =>  const OTPScreen(),
+      transition: Transition.size,
+      page: () => const OTPScreen(),
     ),
     GetPage(
       name: _Paths.PRODUCT_DEATAILS,
-      page: () =>   const ProductDetails(),
+      transition: Transition.size,
+      page: () => const ProductDetails(),
     ),
-
-
-
-
     GetPage(
       name: _Paths.SEARCH_SCREEN,
-      page: () =>    const SearchScreen(),
+      transition: Transition.size,
+      page: () => const SearchScreen(),
     ),
     GetPage(
       name: _Paths.NOTIFICATION_SCREEN,
-      page: () =>    const NotificationScreen(),
-    ),  GetPage(
-      name: _Paths.ADD_PAYMENT_METHOD,
-      page: () =>    const AddPaymentMethod(),
+      transition: Transition.size,
+      page: () => const NotificationScreen(),
     ),
-
-
+    GetPage(
+      name: _Paths.ADD_PAYMENT_METHOD,
+      transition: Transition.size,
+      page: () => const AddPaymentMethod(),
+    ),
     GetPage(
       name: _Paths.PAYMENT_METHOD_SCREEN,
-      page: () =>  const PaymentMethodScreen(),
+      transition: Transition.size,
+      page: () => const PaymentMethodScreen(),
     ),
-
-
-
     GetPage(
       name: _Paths.MY_REVIEW,
-      page: () =>   const MyReviewScreen(),
+      transition: Transition.size,
+      page: () => const MyReviewScreen(),
     ),
-   GetPage(
+    GetPage(
       name: _Paths.BOOK_SCREEN,
-      page: () =>   const BookScreen(),
+      transition: Transition.size,
+      page: () => const BookScreen(),
     ),
-
     GetPage(
       name: _Paths.SETTING_SCREEN,
-      page: () =>   const SettingScreen(),
+      page: () => const SettingScreen(),
     ),
-
-
-
     GetPage(
       name: _Paths.PRODUCT_REVIEW_SCREEN,
-      page: () =>   const ProductReview(),
+      page: () => const ProductReview(),
     ),
-
     GetPage(
       name: _Paths.WRITE_REVIEW_SCREEN,
-      page: () =>   const WriteAReview(),
+      page: () => const WriteAReview(),
     ),
-
     GetPage(
       name: _Paths.MY_PRIFILE,
-      page: () =>    const ViewProfile(),
+      page: () => const ViewProfile(),
     ),
-
     GetPage(
       name: _Paths.CAHANGE_PASSWORD,
-      page: () =>     ChangePassword(),
+      page: () => ChangePassword(),
     ),
-
-
     GetPage(
       name: _Paths.DOCTOR_LIST,
       transition: Transition.size,
@@ -146,13 +142,11 @@ class AppPages {
       transition: Transition.size,
       page: () => const DoctorViewDetails(),
     ),
-
     GetPage(
       name: _Paths.MESSAGE_UI,
       transition: Transition.size,
       page: () => const MessageUIScreen(),
     ),
-
     GetPage(
       name: _Paths.MEDICINE_LIST,
       transition: Transition.size,
@@ -163,11 +157,10 @@ class AppPages {
       transition: Transition.size,
       page: () => const DiagnosticListScreen(),
     ),
- GetPage(
+    GetPage(
       name: _Paths.DIAGNOSTIC_LIST_ADDED,
       transition: Transition.size,
       page: () => const DiagnosticListAddedViewScreen(),
     ),
-
   ];
 }

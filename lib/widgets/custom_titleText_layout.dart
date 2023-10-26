@@ -5,7 +5,7 @@ import 'package:telemedicine_app/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget tileTextLayout({text, context, bool isHideText = false,onAction}) {
+Widget tileTextLayout({text, context, bool isHideText = false,onAction,rightText}) {
   return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
@@ -22,7 +22,7 @@ Widget tileTextLayout({text, context, bool isHideText = false,onAction}) {
           TextButton(
               onPressed:onAction,
               child: Text(
-                AppString.text_view_all.tr,
+               rightText?? AppString.text_view_all.tr,
                 style:
                     AppStyle.normal_text.copyWith(color: AppColor.primaryColor),
               )):Container()

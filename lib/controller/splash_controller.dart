@@ -7,7 +7,7 @@ class SplashController extends GetxController {
   void onReady() {
     _swapLogo();
     _logoLayout();
-   // Future.delayed(const Duration(milliseconds: 900), ()=>chooseScreen());
+    Future.delayed(const Duration(milliseconds: 900), ()=>chooseScreen());
     super.onReady();
   }
 
