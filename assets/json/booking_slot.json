@@ -1,0 +1,52 @@
+{
+  "date": "2023-11-05 00:00:00.000Z",
+
+  "schedule":
+  {
+
+    "morning": [
+      {
+
+        "time": "6.00 To 7.00",
+        "isSecreted": false
+      },
+      {
+
+        "time": "7.00 To 8.00",
+        "isSecreted": true
+      } ,
+      {
+
+        "time": "6.00 To 7.00",
+        "isSecreted": false
+      },
+      {
+
+        "time": "7.00 To 8.00",
+        "isSecreted": true
+      }
+    ],
+
+    "evening": [
+
+      {
+        "time": "5.00 To 6.00",
+        "isSecreted": false
+      } ,
+
+      {
+        "time": "7.00 To 8.00",
+        "isSecreted": true
+      },  {
+        "time": "5.00 To 6.00",
+        "isSecreted": false
+      } ,
+
+      {
+        "time": "7.00 To 8.00",
+        "isSecreted": false
+      }
+
+    ]
+  }
+}

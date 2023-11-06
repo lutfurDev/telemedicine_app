@@ -37,6 +37,7 @@ class Images {
   static String success = 'assets/json/success.json';
   static String filter = 'assets/json/filter.json';
   static String products_model = 'assets/json/products.json';
+  static String booking_slot = 'assets/json/booking_slot.json';
   static String log_out = 'assets/json/logout.json';
   static String no_data = 'assets/json/no_data.json';
   static String medicine = 'assets/images/medicin.jpg';
